@@ -38,6 +38,14 @@ func main() {
 
 	fl_array := make([]float64, total_datapoints)
 
+	if different_points == 0 {
+		for count=0;count<similar_points;count++{
+			fl_array[count] = float64(float64(1)/float64(similar_points))
+		}
+		calcEntropy(fl_array, similar_points)
+		return
+	}
+
 	for count=0;count<similar_points;count++{
 		similar_val := float64(total_sim/float64(similar_points))
 		fl_array[count] = similar_val
